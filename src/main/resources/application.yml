@@ -1,0 +1,27 @@
+server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - "*"
+
+spring:
+  flyway:
+    enabled: false
+    validate-on-migrate: false
+  #    baseline-on-migrate: true
+  datasource:
+    url: jdbc:postgresql://localhost:5423/tennis_db
+    username: ${DB_USERNAME:lom}
+    password: ${DB_PASSWORD:lom-pwd}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+#        format_sql: true
+#    show-sql: true
